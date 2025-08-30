@@ -10,13 +10,13 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div>
-      <main className="min-h-screen bg-[var(--bg)] text-slate-900">
+      <main className="min-h-screen bg-background ">
       <Hero />
       <Problem />
       <Impact />
       <Solutions />
       <Beneficiaries />
-      <Cta />
+      {/* <Cta /> */}
     </main>
     </div>
   );

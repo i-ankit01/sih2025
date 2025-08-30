@@ -1,28 +1,33 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { motion } from "framer-motion"
-import { ArrowRight } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import Lottie from "lottie-react";
+import studentAnimation from "@/assets/landing/student.json";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 16 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-}
+};
 
 export function Hero() {
   const handleLearnMore = () => {
-    const el = document.getElementById("problem")
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" })
-  }
+    const el = document.getElementById("problem");
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   const handleGetStarted = () => {
-    const el = document.getElementById("cta")
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" })
-  }
+    const el = document.getElementById("cta");
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
-    <section aria-labelledby="hero-title" className="relative overflow-hidden border-b border-slate-200">
-      <div className="mx-auto max-w-120 px-20 py-16 md:py-24">
+    <section
+      aria-labelledby="hero-title"
+      className="relative overflow-hidden border-b border-slate-200"
+    >
+      <div className="mx-auto max-w-8xl px-24 py-16 md:py-24">
         <div className="grid items-center gap-10 md:grid-cols-2">
           <motion.div
             initial="hidden"
@@ -38,27 +43,37 @@ export function Hero() {
             >
               Bridging the Digital Divide in Rural Education
             </motion.h1>
-            <motion.p variants={fadeUp} className="max-w-prose text-base leading-relaxed text-slate-700 md:text-lg">
-              Schools in Nabha face outdated infrastructure, low connectivity, and scarce digital resources—making it
-              hard for students to build the modern skills they need to thrive.
+            <motion.p
+              variants={fadeUp}
+              className="max-w-prose text-base leading-relaxed text-slate-700 md:text-lg"
+            >
+              Schools in Nabha face outdated infrastructure, low connectivity,
+              and scarce digital resources—making it hard for students to build
+              the modern skills they need to thrive.
             </motion.p>
 
-            <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3">
-              <Button onClick={handleGetStarted} className="bg-green-600 text-white hover:bg-green-700">
+            <motion.div
+              variants={fadeUp}
+              className="flex flex-wrap items-center gap-3"
+            >
+              <Button
+                onClick={handleGetStarted}
+                className="w-62 h-12 bg-primary shadow rounded-lg text-white text-xl hover:bg-primary/80 cursor-pointer"
+              >
                 Get Started
                 <ArrowRight className="ml-2 size-4" aria-hidden />
               </Button>
               <Button
                 onClick={handleLearnMore}
                 variant="outline"
-                className="border-slate-300 text-slate-900 hover:bg-slate-50 bg-transparent"
+                className="w-62 h-12 bg-transparent shadow rounded-lg text-xl hover:bg-secondary/40 hover:text-black cursor-pointer"
               >
                 Learn More
               </Button>
             </motion.div>
 
             <motion.div variants={fadeUp}>
-              <span className="inline-block rounded-full bg-amber-400/30 px-3 py-1 text-sm font-medium text-slate-900">
+              <span className="inline-block rounded-full bg-secondary border px-3 py-1 text-sm font-medium shadow">
                 Community-first • Offline-ready • Local-language content
               </span>
             </motion.div>
@@ -71,14 +86,16 @@ export function Hero() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <img
-              src="/cartoon-children-learning-with-tablets-and-compute.png"
-              alt="Cartoon illustration of children learning with tablets and computers in a rural classroom"
-              className="w-full rounded-xl border border-slate-200 shadow-sm"
-            />
+            <div className="w-full max-w-md mx-auto">
+              <Lottie
+                animationData={studentAnimation}
+                loop={true}
+                className="w-full h-auto"
+              />
+            </div>
           </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }
